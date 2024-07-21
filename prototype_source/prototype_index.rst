@@ -1,9 +1,8 @@
-PyTorch Prototype Recipes
+파이토치 프로토타입 레시피
 ---------------------------------------------
-Prototype features are not available as part of binary distributions like PyPI or Conda (except maybe behind run-time flags). To test these features we would, depending on the feature, recommend building from master or using the nightly wheels that are made available on `pytorch.org <https://pytorch.org>`_.
+프로토타입 기능들은 PyPI나 Conda와 같은 바이너리 배포판에서는 제공되지 않습니다(런타임 플래그 뒤에 숨겨져 있을 수 있는 경우 제외). 이러한 기능들을 테스트하려면, 기능에 따라 마스터 브랜치에서 빌드하거나 `pytorch.org <https://pytorch.org>`_에서 제공되는 나이틀리 휠을 사용하는 것을 권장합니다.
 
-*Level of commitment*: We are committing to gathering high bandwidth feedback only on these features. Based on this feedback and potential further engagement between community members, we as a community will decide if we want to upgrade the level of commitment or to fail fast.
-
+*헌신 수준*: 우리는 이러한 기능들에 대해 고대역폭 피드백만을 수집하는 데 전념하고 있습니다. 이 피드백과 커뮤니티 구성원들 간의 잠재적인 추가 참여를 바탕으로, 우리는 커뮤니티로서 헌신 수준을 높일지 아니면 빠르게 실패할지를 결정할 것입니다.
 
 .. raw:: html
 
