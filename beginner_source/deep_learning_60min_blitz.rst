@@ -1,6 +1,6 @@
-Deep Learning with PyTorch: A 60 Minute Blitz
+PyTorch로 딥 러닝 60분 만에 뽀개기 
 ---------------------------------------------
-**Author**: `Soumith Chintala <http://soumith.ch>`_
+**저자**: `Soumith Chintala <http://soumith.ch>`_
 
 .. raw:: html
 
@@ -8,20 +8,20 @@ Deep Learning with PyTorch: A 60 Minute Blitz
      <iframe width="560" height="315" src="https://www.youtube.com/embed/u7x8RXwLKcA" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    </div>
 
-What is PyTorch?
+PyTorch란 무엇인가요?
 ~~~~~~~~~~~~~~~~~~~~~
-PyTorch is a Python-based scientific computing package serving two broad purposes:
+PyTorch는 파이썬 기반 과학 컴퓨팅 패키지로, 두 가지 목적을 갖습니다:
 
--  A replacement for NumPy to use the power of GPUs and other accelerators.
--  An automatic differentiation library that is useful to implement neural networks.
+-  GPU나 다른 가속기의 힘을 사용하기 위한 NumPy의 대체제 제공
+-  신경망 구현에 유용한 자동 차별화 라이브러리 제공
 
-Goal of this tutorial:
+이 튜토리얼의 목표:
 ~~~~~~~~~~~~~~~~~~~~~~~~
-- Understand PyTorch’s Tensor library and neural networks at a high level.
-- Train a small neural network to classify images
+- PyTorch의 tensor 라이브러리와 신경망에 대한 높은 이해도를 갖습니다.
+- 이미지 분류를 위한 소규모 신경망을 훈련합니다.
 
-To run the tutorials below, make sure you have the `torch`_, `torchvision`_,
-and `matplotlib`_ packages installed.
+튜토리얼을 시작하기 전에, `torch`_, `torchvision`_,
+및 `matplotlib`_ 패키지가 설치되어 있는지 확인해 주세요.
 
 .. _torch: https://github.com/pytorch/pytorch
 .. _torchvision: https://github.com/pytorch/vision
@@ -65,3 +65,4 @@ and `matplotlib`_ packages installed.
       CIFAR10 dataset.
       +++
       :octicon:`code;1em` Code
+
