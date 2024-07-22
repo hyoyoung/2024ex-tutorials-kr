@@ -4,12 +4,12 @@
 `Multi-Node training <../intermediate/ddp_series_multinode.html>`__ \|\|
 `minGPT Training <../intermediate/ddp_series_minGPT.html>`__
 
-Distributed Data Parallel in PyTorch - Video Tutorials
+파이토치에서 분산 데이터 병렬 처리하기 - 비디오 튜토리얼
 ======================================================
 
-Authors: `Suraj Subramanian <https://github.com/suraj813>`__
-
-Follow along with the video below or on `youtube <https://www.youtube.com/watch/-K3bZYHYHEA>`__.
+저자: `Suraj Subramanian <https://github.com/suraj813>`__
+번역: `박지은 <https://github.com/rumjie>`__
+아래 혹은 링크의 영상과 함께 따라해보세요. `youtube <https://www.youtube.com/watch/-K3bZYHYHEA>`__
 
 .. raw:: html
 
@@ -17,14 +17,12 @@ Follow along with the video below or on `youtube <https://www.youtube.com/watch/
      <iframe width="560" height="315" src="https://www.youtube.com/embed/-K3bZYHYHEA" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    </div>
 
-This series of video tutorials walks you through distributed training in
-PyTorch via DDP.
+이 영상 튜토리얼들은 분산 데이터 병렬 처리를 통해 파이토치에서 분산 학습을 시작할 수 있도록 돕습니다.
 
-The series starts with a simple non-distributed training job, and ends
-with deploying a training job across several machines in a cluster.
-Along the way, you will also learn about
-`torchrun <https://pytorch.org/docs/stable/elastic/run.html>`__ for
-fault-tolerant distributed training.
+이 영상들은 간단한 비분산 학습 작업부터 시작해 
+클러스터 내 여러 대의 머신들에 학습 작업을 배포하는 것으로 마무리됩니다. 
+이 과정에서, 여러분은 결함 허용 분산 학습을 위한 
+`torchrun <https://pytorch.org/docs/stable/elastic/run.html>`__ 에 대해서도 배울 수 있습니다.
 
 The tutorial assumes a basic familiarity with model training in PyTorch.
 
