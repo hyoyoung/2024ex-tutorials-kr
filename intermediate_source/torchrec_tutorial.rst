@@ -4,7 +4,7 @@ TorchRec 소개
 .. tip::
    본 튜토리얼을 최대한 활용하려면, 이
    `Colab 버전 <https://colab.research.google.com/github/pytorch/torchrec/blob/main/Torchrec_Introduction.ipynb>`__ 을 사용하는 것을 권장합니다.
-   해당 Colab 스크립트를 통해 아래에 제시된 정보를 실험해볼 수 있습니다.
+   이를 통해 아래에 제시된 정보를 실험해볼 수 있습니다.
    
 아래 비디오 또는 `유튜브 영상 <https://www.youtube.com/watch?v=cjgj41dvSeQ>`__ 을 시청하면서 따라해보세요.
 
