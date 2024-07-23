@@ -1,12 +1,12 @@
-Introduction to TorchRec
+TorchRec 소개
 ========================
 
 .. tip::
-   To get the most of this tutorial, we suggest using this
-   `Colab Version <https://colab.research.google.com/github/pytorch/torchrec/blob/main/Torchrec_Introduction.ipynb>`__.
-   This will allow you to experiment with the information presented below.
+   본 튜토리얼을 최대한 활용하려면, 이
+   `Colab 버전 <https://colab.research.google.com/github/pytorch/torchrec/blob/main/Torchrec_Introduction.ipynb>`__ 을 사용하는 것을 권장합니다.
+   이를 통해 아래에 제시된 정보를 실험해볼 수 있습니다.
    
-Follow along with the video below or on `youtube <https://www.youtube.com/watch?v=cjgj41dvSeQ>`__.
+아래 비디오 또는 `유튜브 영상 <https://www.youtube.com/watch?v=cjgj41dvSeQ>`__ 을 시청하면서 따라해보세요.
 
 .. raw:: html
 
@@ -14,17 +14,13 @@ Follow along with the video below or on `youtube <https://www.youtube.com/watch?
      <iframe width="560" height="315" src="https://www.youtube.com/embed/cjgj41dvSeQ" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    </div>
 
-When building recommendation systems, we frequently want to represent
-entities like products or pages with embeddings. For example, see Meta
-AI’s `Deep learning recommendation
-model <https://arxiv.org/abs/1906.00091>`__, or DLRM. As the number of
-entities grow, the size of the embedding tables can exceed a single
-GPU’s memory. A common practice is to shard the embedding table across
-devices, a type of model parallelism. To that end, TorchRec introduces
-its primary API
-called |DistributedModelParallel|_,
-or DMP. Like PyTorch’s DistributedDataParallel, DMP wraps a model to
-enable distributed training.
+추천 시스템을 구축할 때, 상품이나 페이지와 같은 개체(Entity)를 임베딩으로 표현해야 하는 경우가 많습니다.  
+예를 들면, Meta
+AI의 `딥 러닝 추천 모델 <https://arxiv.org/abs/1906.00091>`__ (Deep learning recommendation model 또는 DLRM)과 같은 경우입니다.
+개체 수가 증가함에 따라 임베딩 테이블들의 크기가 단일 GPU의 메모리를 초과할 수 있습니다.
+이럴 때 흔히 사용하는 방법은 임베딩 테이블을 여러 장치에 샤딩(shard)하는 모델 병렬화입니다.
+이를 위해 TorchRec은 주요 API인 |DistributedModelParallel|_ (DMP)을 도입했습니다.
+PyTorch의 DistributedDataParallel 처럼, DMP는 분산학습을 할수 있도록 모델을 감쌉(wrap)니다.
 
 Installation
 ------------
