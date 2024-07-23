@@ -17,7 +17,7 @@ TorchRec 소개
 추천 시스템을 구축할 때, 상품이나 페이지와 같은 개체(Entity)를 임베딩으로 표현해야 하는 경우가 많습니다.  
 예를 들면, Meta
 AI의 `딥 러닝 추천 모델 <https://arxiv.org/abs/1906.00091>`__ (Deep learning recommendation model 또는 DLRM)과 같은 경우입니다.
-개체 수가 증가함에 따라 임베딩 테이블의 크기가 단일 GPU의 메모리를 초과할 수 있습니다.
+개체 수가 증가함에 따라 임베딩 테이블들의 크기가 단일 GPU의 메모리를 초과할 수 있습니다.
 이럴 때 흔히 사용하는 방법은 임베딩 테이블을 여러 장치에 분할하는 모델 병렬화입니다.
 이를 위해 TorchRec은 주요 API인 |DistributedModelParallel|_ (DMP)을 도입했습니다.
 PyTorch의 DistributedDataParallel 처럼, DMP는 분산학습을 할수 있도록 모델을 감쌉(wrap)니다.
