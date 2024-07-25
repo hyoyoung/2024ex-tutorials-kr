@@ -1,22 +1,21 @@
-Running Tutorials in Google Colab
+Google Colab에서 PyTorch 튜토리얼 실행시키기
 =================================
 
-When you run a tutorial in Google Colab, there might be additional
-requirements and dependencies that you need to meet in order
-for the tutorial to work properly. This section contains notes on how to
-configure various settings in order to successfully
-run PyTorch tutorials in Google Colab.
+Google Colab 에서 튜토리얼을 실행시킬 때, 튜토리얼이 정상적으로 작동하기 위해서는
+추가적인 의존성 혹은 라이브러리 등을 설치해야 될 수도 있습니다.
+이 섹션에서는 Google Colab 에서 PyTorch 튜토리얼을 성공적으로 실행하기 위해
+필요한 다양한 설정을 하는 방법을 담고 있습니다.
 
-PyTorch Version in Google Colab
+Google Colab의 PyTorch 버전
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When you are running a tutorial that requires a version of PyTorch that has
-just been released, that version might not be yet available in Google Colab.
-To check that you have the required ``torch`` and compatible domain libraries
-installed, run ``!pip list``.
+릴리즈 된 지 얼마 지나지 않은 PyTorch 버전을 요구하는 튜토리얼을 실행할 때,
+그 버전은 아직 Google Colab 에서 지원하지 않을 수도 있습니다.
+그것을 확인하기 위해서, ``torch`` 및 호환 도메인 라이브러리 등이 설치된 걸 확인한 후,
+``!pip list`` 를 실행하십시오.
 
-If the installed version of PyTorch is lower than required,
-uninstall it and reinstall again by running the following commands:
+만약 설치된 PyTorch 버전이 요구 버전보다 낮을 경우,
+아래 명령어를 통해 삭제한 후 재설치를 진행하십시오:
 
 .. code-block:: python
 
