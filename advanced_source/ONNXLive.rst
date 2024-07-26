@@ -1,24 +1,25 @@
 
-ONNX Live Tutorial
+ONNX 실시간 튜토리얼
 ==================
 
-This tutorial will show you to convert a neural style transfer model that has been exported from PyTorch into the Apple CoreML format using ONNX. This will allow you to easily run deep learning models on Apple devices and, in this case, live stream from the camera. 
+이 튜토리얼에서는 PyTorch에서 내보낸 신경망 스타일 전이 모델을 ONNX를 사용하여 Apple CoreML 형식으로 변환하는 방법을 설명합니다. 이 과정을 통해 Apple 기기에서 쉽게 딥러닝 모델을 실행할 수 있으며, 카메라로 실시간 스트리밍도 가능합니다.
 
-What is ONNX?
+ONNX란?
 -------------
 
-ONNX (Open Neural Network Exchange) is an open format to represent deep learning models. With ONNX, AI developers can more easily move models between state-of-the-art tools and choose the combination that is best for them. ONNX is developed and supported by a community of partners. You can learn more about ONNX and what tools are supported by going to `onnx.ai <https://onnx.ai/>`_.
+ONNX(Open Neural Network Exchange)는 딥러닝 모델을 표현하기 위한 개방형 형식입니다. ONNX를 사용하면 AI 개발자들이 최신 도구 간에 모델을 더 쉽게 옮길 수 있고, 자신에게 가장 적합한 조합을 선택할 수 있습니다. ONNX는 여러 파트너사들이 모인 커뮤니티에 의해 개발되고 지원됩니다. ONNX에 대한 자세한 정보와 지원되는 도구는 onnx.ai <https://onnx.ai/>_에서 확인할 수 있습니다.
 
-Tutorial Overview
+
+튜토리얼 개요
 -----------------
 
-This tutorial will walk you through 4 main steps:
+이 튜토리얼은 다음 4가지 주요 단계로 구성됩니다:
 
 
-#. `Download (or train) PyTorch style transfer models`_
-#. `Convert the PyTorch models to ONNX models`_
-#. `Convert the ONNX models to CoreML models`_
-#. `Run the CoreML models in a style transfer iOS App`_
+#. `PyTorch 스타일 전이 모델 다운로드 (또는 학습)`_
+#. `PyTorch 모델을 ONNX 모델로 변환`_
+#. `ONNX 모델을 CoreML 모델로 변환`_
+#. `스타일 전이 iOS 앱에서 CoreML 모델 실행`_
 
 Preparing the Environment
 -------------------------
