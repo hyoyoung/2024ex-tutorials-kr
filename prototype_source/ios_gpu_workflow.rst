@@ -1,21 +1,21 @@
-(Prototype) Use iOS GPU in PyTorch
+(Prototype) PyTorch에서 iOS GPU에 관한 사용 설명서
 ==================================
 
-**Author**: `Tao Xu <https://github.com/xta0>`_
+**저자**: `Tao Xu <https://github.com/xta0>`_
 
-Introduction
+소개
 ------------
 
-This tutorial introduces the steps to run your models on iOS GPU. We'll be using the mobilenetv2 model as an example. Since the mobile GPU features are currently in the prototype stage, you'll need to build a custom pytorch binary from source. For the time being, only a limited number of operators are supported, and certain client side APIs are subject to change in the future versions.
+이 설명서는 iOS GPU에서 모델을 실행하는 방법에 대해 소개합니다. 우리는 mobilenetv2 모델을 예시로 사용할 것입니다. 모바일에서 GPU 기능들은 현재 프로토타입 단계에 있으므로 소스에서 직접 PyTorch 바이너리를 커스텀해서 빌드해야 합니다. 당분간은 제한된 수의 연산자만 지원되며, 특정 클라이언트 API는 향후 버전에서 변경 될 가능성이 있습니다.
 
-Model Preparation
+모델 준비
 -------------------
 
-Since GPUs consume weights in a different order, the first step we need to do is to convert our TorchScript model to a GPU compatible model. This step is also known as "prepacking".
+GPU들은 가중치를 다른 순서로 소비하므로 가장 먼저 해야 할 일은 TorchScript 모델을 GPU 호환 모델로 변환하는 것입니다. 이 단계를 "prepacking"이라고도 합니다.
 
-PyTorch with Metal
+PyTorch와 Metal
 ^^^^^^^^^^^^^^^^^^
-To do that, we'll install a pytorch nightly binary that includes the Metal backend. Go ahead run the command below
+그렇게 하려면, Metal 백엔드를 포함하는 PyTorch Nightly 바이너리를 설치해야 합니다. 다음과 같이 명령을 실행하세요.
 
 .. code:: shell
 
@@ -23,14 +23,14 @@ To do that, we'll install a pytorch nightly binary that includes the Metal backe
     // or
     pip3 install --pre torch -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html
 
-Also, you can build a custom pytorch binary from source that includes the Metal backend. Just checkout the pytorch source code from github and run the command below
+또한, Metal 백엔드를 포함하는 소스에서 커스텀 PyTorch 바이너리를 빌드할 수 있습니다. github에서 PyTorch를 checkout하고 다음과 같이 명령을 실행하세요.
 
 .. code:: shell
 
     cd PYTORCH_ROOT
     USE_PYTORCH_METAL_EXPORT=ON python setup.py install --cmake
 
-The command above will build a custom pytorch binary from master. The ``install`` argument simply tells ``setup.py`` to override the existing PyTorch on your desktop. Once the build finished, open another terminal to check the PyTorch version to see if the installation was successful. As the time of writing of this recipe, the version is ``1.8.0a0+41237a4``. You might be seeing different numbers depending on when you check out the code from master, but it should be greater than 1.7.0.
+위의 명령은 master에서 커스텀 PyTorch 바이너리를 빌드합니다. ``install`` 인자는 단순히 말해서 ``setup.py``에 기존 PyTorch를 덮어쓰는 것입니다. 빌드가 완료되면, 다른 터미널을 열어 PyTorch 버전을 확인하여 설치가 성공했는지 확인합니다. 이 레시피를 작성할 당시 버전은 ``1.8.0a0+41237a4`` 입니다. master에서 코드를 체크아웃하는 시점에 따라 다른 숫자를 볼 수 있지만, 1.7.0보다 상위 버전이어야 합니다.
 
 .. code:: python
 
