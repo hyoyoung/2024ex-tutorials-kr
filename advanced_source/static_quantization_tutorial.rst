@@ -1,22 +1,15 @@
-(beta) Static Quantization with Eager Mode in PyTorch 
+(베타) PyTorch에서의 Eager Mode를 이용한 정적 양자화
 ========================================================= 
-**Author**: `Raghuraman Krishnamoorthi <https://github.com/raghuramank100>`_
-**Edited by**: `Seth Weidman <https://github.com/SethHWeidman/>`_, `Jerry Zhang <https:github.com/jerryzh168>`_
+**저자**: `Raghuraman Krishnamoorthi <https://github.com/raghuramank100>`_
+**편집**: `Seth Weidman <https://github.com/SethHWeidman/>`_, `Jerry Zhang <https:github.com/jerryzh168>`_
 
-This tutorial shows how to do post-training static quantization, as well as illustrating  
-two more advanced techniques - per-channel quantization and quantization-aware training - 
-to further improve the model's accuracy. Note that quantization is currently only supported 
-for CPUs, so we will not be utilizing GPUs / CUDA in this tutorial. 
-By the end of this tutorial, you will see how quantization in PyTorch can result in 
-significant decreases in model size while increasing speed. Furthermore, you'll see how 
-to easily apply some advanced quantization techniques shown 
-`here <https://arxiv.org/abs/1806.08342>`_ so that your quantized models take much less 
-of an accuracy hit than they would otherwise. 
-Warning: we use a lot of boilerplate code from other PyTorch repos to, for example, 
-define the ``MobileNetV2`` model architecture, define data loaders, and so on. We of course  
-encourage you to read it; but if you want to get to the quantization features, feel free  
-to skip to the "4. Post-training static quantization" section.  
-We'll start by doing the necessary imports: 
+이 튜토리얼은 학습 후 정적 양자화(post-training static quantization)를 하는 방법과 모델의 정확도를 향상하기 위한 두 가지 고급 기술 - 채널별 양자화(per-channel quantization)와 양자화 인식 학습(quantization-aware training) - 을 설명합니다.
+현재 양자화는 CPU에서만 지원되므로, 이 튜토리얼에서는 GPU / CUDA를 사용하지 않습니다.
+이 튜토리얼을 끝내면, PyTorch에서 양자화가 어떻게 모델 크기를 크게 줄이고 속도를 증가시키는지를 알게 될 것입니다.
+또한, `여기 <https://arxiv.org/abs/1806.08342>`_ 에 나와 있는 몇 가지 고급 양자화 기술을 쉽게 적용하여 양자화된 모델로 정확도 손실을 최소화하는 방법을 알 수 있습니다.
+주의: ``MobileNetV2`` 모델 아키텍처를 정의하고 데이터 로더를 정의하는 등 다른 PyTorch 저장소의 많은 상용구 코드(boilerplate code)를 사용합니다.
+물론 이 코드들을 읽어보기를 권장하지만, 양자화 특징만 알고 싶다면 "4. 학습 후 정적 양자화" 항목으로 바로 넘어가셔도 됩니다.
+필요한 import부터 시작하겠습니다:
 
 .. code:: python
 
