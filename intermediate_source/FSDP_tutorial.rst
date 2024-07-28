@@ -1,17 +1,17 @@
-Getting Started with Fully Sharded Data Parallel(FSDP)
+Fully Sharded Data Parallel(FSDP) 시작하기
 ======================================================
 
-**Author**: `Hamid Shojanazeri <https://github.com/HamidShojanazeri>`__, `Yanli Zhao <https://github.com/zhaojuanmao>`__, `Shen Li <https://mrshenli.github.io/>`__
+**저자**: `Hamid Shojanazeri <https://github.com/HamidShojanazeri>`__, `Yanli Zhao <https://github.com/zhaojuanmao>`__, `Shen Li <https://mrshenli.github.io/>`__
 
-.. note::
-   |edit| View and edit this tutorial in `github <https://github.com/pytorch/tutorials/blob/main/intermediate_source/FSDP_tutorial.rst>`__.
+.. 공지::
+   |edit| 이 문서의 열람과 수정은 github에서 이루어집니다. `github <https://github.com/pytorch/tutorials/blob/main/intermediate_source/FSDP_tutorial.rst>`__.
 
-Training AI models at a large scale is a challenging task that requires a lot of compute power and resources. 
-It also comes with considerable engineering complexity to handle the training of these very large models.
-`PyTorch FSDP <https://pytorch.org/blog/introducing-pytorch-fully-sharded-data-parallel-api/>`__, released in PyTorch 1.11 makes this easier.
+대규모의 AI 모델 학습은 많은 전력과 컴퓨팅 자원을 필요로 하는 어려운 일입니다. 
+또한 굉장히 큰 모델들의 학습을 관리하기 위해서 엔지니어링 복잡성도 고려해야만 합니다. 
+PyTorch 1.11 버전에서 release된 `PyTorch FSDP <https://pytorch.org/blog/introducing-pytorch-fully-sharded-data-parallel-api/>`__ 가 여기에 도움이 될 것입니다.
 
-In this tutorial, we show how to use `FSDP APIs <https://pytorch.org/docs/stable/fsdp.html>`__, for simple MNIST models that can be extended to other larger models such as `HuggingFace BERT models <https://huggingface.co/blog/zero-deepspeed-fairscale>`__, 
-`GPT 3 models up to 1T parameters <https://pytorch.medium.com/training-a-1-trillion-parameter-model-with-pytorch-fully-sharded-data-parallel-on-aws-3ac13aa96cff>`__ . The sample DDP MNIST code has been borrowed from `here <https://github.com/yqhu/mnist_examples>`__. 
+이 문서에서는 `HuggingFace BERT models <https://huggingface.co/blog/zero-deepspeed-fairscale>`__ 나 `GPT 3 models up to 처럼 파라미터 수가 1조를 넘는 모델 <https://pytorch.medium.com/training-a-1-trillion-parameter-model-with-pytorch-fully-sharded-data-parallel-on-aws-3ac13aa96cff>`__ 로 확장시킬 수 있는 간단한 MNIST model에 `FSDP APIs <https://pytorch.org/docs/stable/fsdp.html>`__ 를 사용하는 방법을 설명합니다.
+샘플 DDP MNIST 코드는 `여기 <https://github.com/yqhu/mnist_examples>`__ 서 발췌되었습니다.
 
 
 How FSDP works
