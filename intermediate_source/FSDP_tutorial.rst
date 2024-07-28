@@ -3,7 +3,7 @@ Fully Sharded Data Parallel(FSDP) 시작하기
 
 **저자**: `Hamid Shojanazeri <https://github.com/HamidShojanazeri>`__, `Yanli Zhao <https://github.com/zhaojuanmao>`__, `Shen Li <https://mrshenli.github.io/>`__
 
-.. 공지::
+.. note::
    |edit| 이 문서의 열람과 수정은 github에서 이루어집니다. `github <https://github.com/pytorch/tutorials/blob/main/intermediate_source/FSDP_tutorial.rst>`__.
 
 대규모의 AI 모델 학습은 많은 전력과 컴퓨팅 자원을 필요로 하는 어려운 일입니다. 
