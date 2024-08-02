@@ -16,7 +16,7 @@ PyTorch 1.11 버전에서 배포된 `PyTorch FSDP <https://pytorch.org/blog/intr
 
 FSDP 작동 방식
 --------------
-`DistributedDataParallel(DDP) <https://pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html>`_\방식의 학습에서는, 각 프로세스와 worker가 모델의 복제본을 가지고 데이터 배치를 처리하며, 마지막에 각기 다른 workers의 변화도를 더하기 위해 all-reduce를 사용합니다. DDP에서 모델의 가중치와 옵티마이저 상태는 모든 worker에게 복제됩니다. FSDP는 DDP 순위에 따라 모델의 파라미터, 옵티마이저 상태와 변화도를 공유하는 데이터 병렬화의 일종입니다.
+`DistributedDataParallel(DDP) <https://pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html>`_\방식의 학습에서는, 각 프로세스와 worker가 모델의 복제본을 가지고 데이터 배치를 처리하며, 마지막에 각기 다른 workers의 변화도를 더하기 위해 all-reduce를 사용합니다. DDP에서 모델의 가중치와 옵티마이저 상태는 모든 worker에게 복제됩니다. FSDP는 DDP 순위에 따라 모델의 파라미터, 옵티마이저 상태와 변화도를 샤딩(shard)하는 데이터 병렬화(parallelism)의 일종입니다.
 
 When training with FSDP, the GPU memory footprint is smaller than when training with DDP across all workers. This makes the training of some very large models feasible by allowing larger models or batch sizes to fit on device. This comes with the cost of increased communication volume. The communication overhead is reduced by internal optimizations like overlapping communication and computation.
 
