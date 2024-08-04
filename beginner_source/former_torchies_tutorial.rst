@@ -2,16 +2,16 @@ PyTorch for Former Torch Users
 ------------------------------
 **Author**: `Soumith Chintala <http://soumith.ch>`_
 
-In this tutorial, you will learn the following:
+이번 튜토리얼에서는 다음을 배울 수 있습니다:
 
-1. Using torch Tensors, and important difference against (Lua)Torch
-2. Using the autograd package
-3. Building neural networks
+1. torch Tensor 사용하기, (Lua)Torch와의 중요한 차이점
+2. autograd 패키지 사용하기
+3. 신경망 만들기
 
-  -  Building a ConvNet
-  -  Building a Recurrent Net
+  -  ConvNet 만들기
+  -  Recurrent Net 만들기
 
-4. Use multiple GPUs
+4. 다중 GPU 사용하기
 
 
 .. toctree::
