@@ -1,15 +1,22 @@
 Skipping Module Parameter Initialization
 ========================================
+스키핑 모듈 매개변수 초기화
 
 Introduction
 ------------
+개요
 
 When a module is created, its learnable parameters are initialized according
-to a default initialization scheme associated with the module type. For example, the `weight`
-parameter for a :class:`torch.nn.Linear` module is initialized from a
-`uniform(-1/sqrt(in_features), 1/sqrt(in_features))` distribution. If some other initialization
-scheme is desired, this has traditionally required re-initializing the parameters
+to a default initialization scheme associated with the module type. 
+모듈이 생성 될 때, 학습할 수 있는 매개변수들은 모듈 타입과 관련하여 기본적인 초기화 방식에 따라 초기화가 됩니다.
+
+For example, the `weight` parameter for a :class:`torch.nn.Linear` module is initialized from a
+`uniform(-1/sqrt(in_features), 1/sqrt(in_features))` distribution. 
+예를 들면, (:class:`torch.nn.Linear`) 모듈의 가중치 매개변수는 `uniform(-1/sqrt(in_features), 1/sqrt(in_features))`로 분배되어 초기화 됩니다.
+
+If some other initialization scheme is desired, this has traditionally required re-initializing the parameters
 after module instantiation:
+다른 초기화 방식을 바란다면, 모듈 인스턴스화 이후에 이전의 방식으로 매개변수들을 재 초기화하는 것이 필요합니다.
 
 ::
 
