@@ -1,7 +1,8 @@
 Fully Sharded Data Parallel(FSDP) 시작하기
 ======================================================
 
-**저자**: `Hamid Shojanazeri <https://github.com/HamidShojanazeri>`__, `Yanli Zhao <https://github.com/zhaojuanmao>`__, `Shen Li <https://mrshenli.github.io/>`__
+**저자**: `Hamid Shojanazeri <https://github.com/HamidShojanazeri>`__, `Yanli Zhao <https://github.com/zhaojuanmao>`__, `Shen Li <https://mrshenli.github.io/>`__  
+
 **번역**: `박정은 <https://github.com/Angela-Park-JE/>`_
 
 .. note::
@@ -11,13 +12,13 @@ Fully Sharded Data Parallel(FSDP) 시작하기
 또한 굉장히 큰 모델들의 학습을 관리하기 위해서 엔지니어링 복잡성도 고려해야만 합니다. 
 PyTorch 1.11 버전에서 배포된 `PyTorch FSDP <https://pytorch.org/blog/introducing-pytorch-fully-sharded-data-parallel-api/>`_\가 여기에 도움이 될 것입니다.  
 
-이 문서에서는 `HuggingFace BERT 모델 <https://huggingface.co/blog/zero-deepspeed-fairscale>`_\이나 `파라미터 수가 1조 개에 달하는 GPT 3 모델 <https://pytorch.medium.com/training-a-1-trillion-parameter-model-with-pytorch-fully-sharded-data-parallel-on-aws-3ac13aa96cff>`_\과 같은 더 큰 모델로 확장시킬 수 있는 간단한 MNIST 모델에 `FSDP APIs <https://pytorch.org/docs/stable/fsdp.html>`_\를 사용하는 방법을 설명합니다.  
+이 문서에서는 `HuggingFace BERT 모델 <https://huggingface.co/blog/zero-deepspeed-fairscale>`_\이나 `매개변수 수가 1조 개에 달하는 GPT 3 모델 <https://pytorch.medium.com/training-a-1-trillion-parameter-model-with-pytorch-fully-sharded-data-parallel-on-aws-3ac13aa96cff>`_\과 같은 더 큰 모델로 확장시킬 수 있는 간단한 MNIST 모델에 `FSDP APIs <https://pytorch.org/docs/stable/fsdp.html>`_\를 사용하는 방법을 설명합니다.  
 샘플 DDP MNIST 코드는 `여기 <https://github.com/yqhu/mnist_examples>`_\서 발췌되었습니다.  
 
 
 FSDP 작동 방식
 --------------
-`DistributedDataParallel(DDP) <https://pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html>`_\방식의 학습에서는, 각 프로세스와 worker가 모델의 복제본을 가지고 데이터 배치를 처리하며, 마지막에 각기 다른 workers의 변화도를 더하기 위해 all-reduce를 사용합니다. DDP에서 모델의 가중치와 옵티마이저 상태는 모든 worker에게 복제됩니다. FSDP는 DDP 순위에 따라 모델의 파라미터, 옵티마이저 상태와 변화도를 샤딩(shard)하는 데이터 병렬화(parallelism)의 일종입니다.
+`DistributedDataParallel(DDP) <https://pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html>`_\방식의 학습에서는, 각 프로세스와 worker가 모델의 복제본을 가지고 데이터 배치를 처리하며, 마지막에 각기 다른 workers의 변화도를 더하기 위해 all-reduce를 사용합니다. DDP에서 모델의 가중치와 옵티마이저 상태는 모든 worker에게 복제됩니다. FSDP는 DDP 순위에 따라 모델의 매개변수, 옵티마이저 상태와 변화도를 샤딩(shard)하는 데이터 병렬화(parallelism)의 일종입니다.
 
 FSDP로 학습할 경우 GPU 메모리 전체 사용량은 모든 workers를 통한 DDP로 학습할 때보다 줄어듭니다. 이는 더 큰 모델이나 배치 사이즈를 장치에 맞출 수 있도록 함으로써 몇몇 매우 큰 모델들을 학습할 수 있게 합니다. 이는 통신량 증가(communication volume) 비용도 따릅니다만, 이 통신량 증가는 통신 및 연산을 중첩시키는 것과 같은 내부적 최적화 방식들(optimizations)을 통해 감소됩니다.
 
