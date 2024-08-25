@@ -1,9 +1,9 @@
-
 분산 데이터 병렬 처리 시작하기
 =================================================
 **저자**: `Shen Li <https://mrshenli.github.io/>`_
-
+**번역**: `송호준 <https://github.com/hojunking>`_
 **편집자**: `Joe Zhu <https://github.com/gunandrose4u>`_
+**번역**: `송호준 <https://github.com/hojunking>`_
 
 .. note::
    |edit| 이 튜토리얼을 `github <https://github.com/pytorch/tutorials/blob/main/intermediate_source/ddp_tutorial.rst>`__ 에서 보고 편집하세요.
@@ -14,7 +14,7 @@
 -  `DistributedDataParallel API 문서 <https://pytorch.org/docs/master/generated/torch.nn.parallel.DistributedDataParallel.html>`__
 -  `DistributedDataParallel 노트 <https://pytorch.org/docs/master/notes/ddp.html>`__
 
-`DistributedDataParallel <https://pytorch.org/docs/stable/nn.html#module-torch.nn.parallel>`__ (DDP)는 모듈 수준에서 데이터 병렬 처리를 구현하며, 여러 기계에서 실행될 수 있습니다. DDP를 사용하는 애플리케이션(application)은 여러 프로세스를 생성하고 프로세스 당 하나의 DDP 인스턴스를 생성해야 합니다. DDP는 `torch.distributed <https://pytorch.org/tutorials/intermediate/dist_tuto.html>`__ 패키지의 집합적 통신을 사용하여 변화도(gradient)와 버퍼(buffer)를 동기화합니다. 더 구체적으로, DDP는 ``model.parameters()``에 의해 주어진 각 매개변수에 대한 autograd 훅(hook)을 등록하고, 해당 변화도(gradient)가 역전파(backward)에서 계산될 때 훅(hook)이 발동됩니다. 그 후 DDP는 그 신호를 사용하여 프로세스 간 변화도(gradient) 동기화를 트리거(trigger)합니다. 자세한 내용은 `DDP 설계 노트 <https://pytorch.org/docs/master/notes/ddp.html>`__ 를 참조하십시오.
+`DistributedDataParallel <https://pytorch.org/docs/stable/nn.html#module-torch.nn.parallel>`__ (DDP)는 모듈 수준에서 데이터 병렬 처리를 구현하며, 여러 기계에서 실행될 수 있습니다. DDP를 사용하는 애플리케이션(application)은 여러 프로세스를 생성하고 프로세스 당 하나의 DDP 인스턴스를 생성해야 합니다. DDP는 `torch.distributed <https://pytorch.org/tutorials/intermediate/dist_tuto.html>`__ 패키지의 집합적 통신을 사용하여 변화도(gradient)와 버퍼를 동기화합니다. 더 구체적으로, DDP는 ``model.parameters()``에 의해 주어진 각 매개변수에 대한 autograd 훅(hook)을 등록하고, 해당 변화도가 역전파(backward)에서 계산될 때 훅(hook)이 발동됩니다. 그 후 DDP는 그 신호를 사용하여 프로세스 간 변화도 동기화를 트리거(trigger)합니다. 자세한 내용은 `DDP 설계 노트 <https://pytorch.org/docs/master/notes/ddp.html>`__ 를 참조하십시오.
 
 DDP를 사용하는 권장 방법은 각 모델 복제본에 대해 하나의 프로세스를 생성하는 것이며, 모델 복제본은 여러 디바이스에 걸쳐 있을 수 있습니다. DDP 프로세스는 같은 기계에 배치될 수도 있고, 서로 다른 기계에 배치될 수도 있지만, GPU 디바이스는 프로세스 간에 공유될 수 없습니다. 이 튜토리얼은 기본적인 DDP 사용 사례에서 시작하여 모델 체크포인트 생성 및 모델 병렬 처리와 DDP의 결합을 포함한 더 고급 사용 사례를 보여줍니다.
 
